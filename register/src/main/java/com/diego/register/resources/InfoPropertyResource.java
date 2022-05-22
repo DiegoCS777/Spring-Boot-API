@@ -28,7 +28,7 @@ public class InfoPropertyResource {
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<InfoProperty> findById(@PathVariable Long id) {
-		InfoProperty info =	infoPropertyRepository.findById(id);
+		InfoProperty info =	infoPropertyRepository.findById(id).get();
 		return ResponseEntity.ok().body(info);
 	} 
 }

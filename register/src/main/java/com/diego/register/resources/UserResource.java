@@ -29,7 +29,7 @@ public class UserResource {
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User u = userRepository.findById(id);
+		User u = userRepository.findById(id).get();
 		return ResponseEntity.ok().body(u);
 	} 
 }
