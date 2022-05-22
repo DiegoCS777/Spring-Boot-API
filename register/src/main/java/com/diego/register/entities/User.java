@@ -2,7 +2,11 @@ package com.diego.register.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class User implements Serializable {
 	
@@ -14,6 +18,8 @@ public class User implements Serializable {
 	private String cnpj;
 	private String comments;
 	
+	@JsonIgnore
+	private List<InfoProperty> infoproperties = new ArrayList<>();	
 	public User() {
 		
 	}
@@ -76,6 +82,10 @@ public class User implements Serializable {
 	public void setFinalDate(Instant finalDate) {
 		this.finalDate = finalDate;
 	}
+	
+	public List<InfoProperty> getInfoproperties() {
+		return infoproperties;
+	}
 
 	public String getCnpj() {
 		return cnpj;
@@ -92,5 +102,6 @@ public class User implements Serializable {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
 
 }
